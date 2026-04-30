@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بارق حذيفة مزهر — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════
+   TOKENS
+═══════════════════════════════ */
+:root {
+  --bg:           #f2f2f7;
+  --bg2:          #e5e5ea;
+  --surface:      #ffffff;
+  --surface2:     #f7f7f9;
+  --surface3:     #ebebf0;
+  --border:       rgba(0,0,0,0.07);
+  --border-md:    rgba(0,0,0,0.11);
+  --text:         #1c1c1e;
+  --text-2:       #3a3a3c;
+  --text-muted:   #6e6e73;
+  --text-soft:    #aeaeb2;
+  --accent:       #0071e3;
+  --accent-light: #3395f5;
+  --accent-dim:   rgba(0,113,227,0.10);
+  --accent-glow:  rgba(0,113,227,0.18);
+  --green:        #34c759;
+  --green-dim:    rgba(52,199,89,0.12);
+  --orange:       #ff9500;
+  --orange-dim:   rgba(255,149,0,0.12);
+  --red:          #ff3b30;
+
+  --r-sm:  10px;
+  --r-md:  16px;
+  --r-lg:  22px;
+  --r-xl:  28px;
+
+  --sh-sm: 0 1px 4px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  --sh-md: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --sh-lg: 0 12px 40px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05);
+
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t: 0.38s;
+
+  --font-ar: 'Tajawal', sans-serif;
+  --font-en: 'DM Sans', sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg:           #000000;
+  --bg2:          #0a0a0a;
+  --surface:      #1c1c1e;
+  --surface2:     #2c2c2e;
+  --surface3:     #3a3a3c;
+  --border:       rgba(255,255,255,0.07);
+  --border-md:    rgba(255,255,255,0.13);
+  --text:         #f5f5f7;
+  --text-2:       #d1d1d6;
+  --text-muted:   #98989d;
+  --text-soft:    #48484a;
+  --accent:       #2997ff;
+  --accent-light: #5eb4ff;
+  --accent-dim:   rgba(41,151,255,0.12);
+  --accent-glow:  rgba(41,151,255,0.22);
+  --green:        #30d158;
+  --green-dim:    rgba(48,209,88,0.13);
+  --orange:       #ff9f0a;
+  --orange-dim:   rgba(255,159,10,0.13);
+  --sh-sm: 0 1px 4px rgba(0,0,0,0.4);
+  --sh-md: 0 4px 16px rgba(0,0,0,0.45);
+  --sh-lg: 0 12px 40px rgba(0,0,0,0.55);
+}
+
+/* ═══════════════════════════════
+   RESET & BASE
+═══════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-ar);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background var(--t) var(--ease), color var(--t) var(--ease);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.lang-en { font-family: var(--font-en); direction: ltr; }
+
+/* ambient glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transition: var(--t);
+  animation: ambientPulse 6s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%,100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;   transform: translateX(-50%) scale(1.08); }
+}
+
+/* ═══════════════════════════════
+   NAVBAR (Circle-style)
+═══════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  height: 64px;
+  background: linear-gradient(135deg, #3395f5 0%, #3395f5 30%, #0071e3 70%, #0071e3 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+  animation: navSlide 0.6s var(--spring) both;
+  justify-content: center;
+  border-radius: 0px 0px 15px 15px;
+}
+
+[data-theme="dark"] .navbar {
+  background: linear-gradient(135deg, #3395f5 0%, #3395f5 30%, #0071e3 70%, #0071e3 100%);
+}
+
+@keyframes navSlide {
+  from { transform: translateY(-64px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* logo area */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: var(--font-en);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.22);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nav-logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.82);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-en);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: white;
+  background: rgba(255,255,255,0.12);
+}
+
+/* right side actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.nav-sep {
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,0.2);
+  margin: 0 4px;
+}
+
+/* icon-only button */
+.nav-icon-btn {
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-icon-btn:hover { background: rgba(255,255,255,0.22); transform: scale(1.06); }
+.nav-icon-btn svg { width: 16px; height: 16px; stroke: white; stroke-width: 2; fill: none; }
+
+/* toggle pill inside navbar */
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(0,0,0,0.18);
+  border-radius: 50px;
+  padding: 3px 4px;
+}
+
+.ctrl {
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.22s var(--ease);
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-en);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.ctrl.on {
+  background: rgba(255,255,255,0.95);
+  color: #1e6b8a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.ctrl:hover:not(.on) { color: white; }
+
+/* print button */
+.nav-print-btn {
+  border: 2px solid rgba(255,255,255,0.9);
+  background: transparent;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 7px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: var(--font-en);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.22s var(--ease);
+  white-space: nowrap;
+}
+
+.nav-print-btn:hover {
+  background: white;
+  color: #1e6b8a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.nav-print-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.pill-sep { display: none; }
+
+/* ═══════════════════════════════
+   PAGE
+═══════════════════════════════ */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 90px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 70px;
+}
+
+/* ═══════════════════════════════
+   HERO CARD
+═══════════════════════════════ */
+.hero-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-lg);
+  padding: 44px 40px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: heroIn 0.9s var(--spring) 0.1s both;
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(36px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* top strip accent */
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light), #5ac8fa, var(--accent));
+  background-size: 200%;
+  animation: shimmerBar 3s linear infinite;
+}
+
+@keyframes shimmerBar {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+
+.avatar {
+  width: 100px; /* Slightly larger for better impact */
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  background: var(--surface); /* Clean base */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+  /* Advanced Layered Styling */
+  border: 3px solid var(--surface);
+  box-shadow: 
+    0 0 0 1px var(--border-md),      /* Fine outer stroke */
+    0 8px 20px rgba(0,0,0,0.12),      /* Soft drop shadow */
+    0 0 15px var(--accent-glow);      /* Ambient theme glow */
+    
+  transition: transform var(--t) var(--spring), box-shadow var(--t) ease;
+  overflow: visible; /* Allows the glow to breathe */
+  animation: avatarFloat 5s ease-in-out infinite;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Decorative outer ring */
+.avatar::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 1.5px dashed var(--accent-light);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: rotateRing 20s linear infinite;
+}
+
+@keyframes avatarFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.avatar:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 12px 30px var(--accent-glow);
+}
+
+@keyframes avatarPulse {
+  0%,100% { box-shadow: 0 0 0 5px var(--accent-dim), var(--sh-md); }
+  50%     { box-shadow: 0 0 0 10px var(--accent-glow), var(--sh-md); }
+}
+
+.hero-name {
+  font-size: clamp(26px, 5vw, 44px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--text) 30%, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-role {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+.hero-meta {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hero-meta-item svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+}
+
+/* contact chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  background: var(--surface2);
+  border: 1px solid var(--border-md);
+  border-radius: 50px;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.25s var(--ease);
+  font-family: var(--font-en);
+  direction: ltr;
+  font-weight: 500;
+}
+
+.chip svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+.chip:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.chip:hover svg { stroke: white; }
+
+/* ═══════════════════════════════
+   SECTION WRAPPER
+═══════════════════════════════ */
+.sec {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.sec.vis { opacity: 1; transform: translateY(0); }
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.sec-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sec-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.sec-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: var(--font-en);
+}
+
+/* ═══════════════════════════════
+   CARD
+═══════════════════════════════ */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  transition: box-shadow 0.3s var(--ease), border-color 0.3s, transform 0.25s var(--ease), background var(--t);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--sh-md);
+  border-color: var(--border-md);
+}
+
+/* ═══════════════════════════════
+   EDUCATION CARD
+═══════════════════════════════ */
+.edu-inner {
+  padding: 26px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.edu-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), #5ac8fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.edu-icon-wrap svg {
+  width: 26px;
+  height: 26px;
+  stroke: white;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.edu-info { flex: 1; }
+
+.edu-degree {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.edu-field {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.edu-year {
+  font-size: 12px;
+  color: var(--text-soft);
+  font-family: var(--font-en);
+  margin-top: 6px;
+}
+
+/* ═══════════════════════════════
+   EXPERIENCE
+═══════════════════════════════ */
+.exp-list { padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+
+.exp-item {
+  padding: 20px 20px;
+  border-radius: var(--r-md);
+  transition: background 0.2s, transform 0.2s var(--spring);
+  position: relative;
+  cursor: default;
+}
+
+.exp-item::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.35s var(--spring);
+}
+
+.exp-item:hover { background: var(--surface2); transform: translateX(-2px); }
+body.lang-en .exp-item:hover { transform: translateX(2px); }
+.exp-item:hover::after { transform: scaleY(1); }
+
+.exp-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.exp-left { flex: 1; }
+
+.exp-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.exp-company {
+  font-size: 13.5px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.exp-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-en);
+  direction: ltr;
+  white-space: nowrap;
+}
+
+.exp-badge svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+.exp-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.exp-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+/* ═══════════════════════════════
+   TWO-COL GRID
+═══════════════════════════════ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════
+   SKILLS
+═══════════════════════════════ */
+.skills-wrap { padding: 20px; display: flex; flex-direction: column; gap: 0; }
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+  border-radius: var(--r-sm);
+  cursor: default;
+}
+
+.skill-row:last-child { border-bottom: none; }
+.skill-row:hover { background: var(--surface2); }
+
+.skill-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.skill-icon-wrap svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.skill-info { flex: 1; }
+
+.skill-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.skill-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.skill-bar-wrap {
+  width: 100px;
+  height: 4px;
+  background: var(--surface3);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.skill-bar {
+  height: 100%;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s var(--spring);
+}
+
+body:not(.lang-en) .skill-bar { transform-origin: right; }
+
+/* ═══════════════════════════════
+   LANGUAGES
+═══════════════════════════════ */
+.lang-wrap { padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+
+.lang-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 8px;
+  border-radius: var(--r-sm);
+  transition: background 0.2s;
+  cursor: default;
+}
+
+.lang-item:hover { background: var(--surface2); }
+
+.lang-flag {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.lang-info { flex: 1; }
+
+.lang-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.lang-level {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.lang-bar-wrap {
+  width: 110px;
+  height: 4px;
+  background: var(--surface3);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-bar {
+  height: 100%;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s var(--spring);
+}
+
+body:not(.lang-en) .lang-bar { transform-origin: right; }
+
+.lang-pct {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-en);
+  min-width: 30px;
+  text-align: end;
+}
+
+/* ═══════════════════════════════
+   SUMMARY CARD
+═══════════════════════════════ */
+.summary-inner {
+  padding: 26px 28px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.summary-quote {
+  font-size: 42px;
+  line-height: 1;
+  color: var(--accent-dim);
+  font-family: Georgia, serif;
+  margin-top: -6px;
+  flex-shrink: 0;
+}
+
+.summary-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════
+   STATS STRIP
+═══════════════════════════════ */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-sm);
+}
+
+.stat {
+  background: var(--surface);
+  padding: 22px 18px;
+  text-align: center;
+  border-inline-end: 1px solid var(--border);
+  transition: background 0.2s;
+  cursor: default;
+}
+
+.stat:last-child { border-inline-end: none; }
+.stat:hover { background: var(--surface2); }
+
+.stat-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  font-family: var(--font-en);
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ═══════════════════════════════
+   LANG SWITCH CONTENT
+═══════════════════════════════ */
+.ar  { display: block; }
+.en  { display: none; }
+.ari { display: inline; }
+.eni { display: none; }
+
+body.lang-en .ar  { display: none; }
+body.lang-en .en  { display: block; }
+body.lang-en .ari { display: none; }
+body.lang-en .eni { display: inline; }
+
+/* ═══════════════════════════════
+   FOOTER
+═══════════════════════════════ */
+footer {
+  text-align: center;
+  padding: 16px 24px 60px;
+  font-size: 12.5px;
+  color: var(--text-soft);
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-en);
+}
+
+/* ═══════════════════════════════
+   COUNTER ANIMATION
+═══════════════════════════════ */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.stat-num { animation: countUp 0.6s var(--spring) both; }
+.stats-strip .stat:nth-child(1) .stat-num { animation-delay: 0.1s; }
+.stats-strip .stat:nth-child(2) .stat-num { animation-delay: 0.22s; }
+.stats-strip .stat:nth-child(3) .stat-num { animation-delay: 0.34s; }
+
+/* responsive */
+@media (max-width: 600px) {
+  main { padding: 100px 14px 80px; gap: 20px; }
+  .hero-card { padding: 32px 20px 28px; }
+  .exp-top { flex-direction: column; }
+  .edu-inner { flex-direction: column; text-align: center; }
+  .summary-inner { flex-direction: column; gap: 8px; }
+  .stats-strip { grid-template-columns: 1fr; border-radius: var(--r-md); }
+  .stat { border-inline-end: none; border-bottom: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+  .skill-bar-wrap, .lang-bar-wrap { display: none; }
+}
+
+/* nav link language visibility */
+.nav-link.ar { display: inline-flex; }
+.nav-link.en { display: none; }
+body.lang-en .nav-link.ar { display: none; }
+body.lang-en .nav-link.en { display: inline-flex; }
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .navbar { padding: 0 16px; }
+  .nav-print-btn span { display: none; }
+  .nav-print-btn { padding: 7px 12px; }
+}
+  .controls, body::before { display: none; }
+  main { padding: 20px; }
+  .sec { opacity: 1; transform: none; }
+
+
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar">
+
+
+  
+
+  <!-- Right actions -->
+  <div class="nav-actions">
+
+    <!-- Lang toggle -->
+    <div class="nav-pill">
+      <button class="ctrl on" id="btn-ar" onclick="setLang('ar')">ع</button>
+      <button class="ctrl" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+
+    <!-- Theme toggle -->
+    <div class="nav-pill">
+      <button class="ctrl on" id="btn-light" onclick="setTheme('light')">
+        <svg viewBox="0 0 20 20" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="4"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2"/></svg>
+      </button>
+      <button class="ctrl" id="btn-dark" onclick="setTheme('dark')">
+        <svg viewBox="0 0 20 20" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 11A7 7 0 1 1 9 3a5 5 0 0 0 8 8z"/></svg>
+      </button>
+    </div>
+
+    <!-- Print PDF -->
+    <button class="nav-print-btn" onclick="printPDF()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 6,2 18,2 18,9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span class="ar">طباعة PDF</span>
+      <span class="en">Print PDF</span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+  <!-- ── HERO ── -->
+  <div class="hero-card">
+    <div class="avatar">
+<img src="https://i.ibb.co/1JbFgd7B/Gemini-Generated-Image-kmoy6ikmoy6ikmoy.png" alt="avatar">
+
+    </div>
+
+    <h1 class="hero-name">
+      <span class="ar">بارق حذيفة مزهر</span>
+      <span class="en">Bareq Huzaifa Mazhar</span>
+    </h1>
+
+    <p class="hero-role">
+      <span class="ar">مدير موارد بشرية</span>
+      <span class="en">Human Resources Manager</span>
+    </p>
+
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="ar">بغداد، العراق</span>
+        <span class="en">Baghdad, Iraq</span>
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span class="ar">مواليد ١٩٩٨</span>
+        <span class="en">Born 1998</span>
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <span class="ar">خبرة ٧+ سنوات</span>
+        <span class="en">7+ Years Experience</span>
+      </span>
+    </div>
+
+    <div class="chips">
+      <a href="tel:+9647838719989" class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.45 19.45 0 0 1 5 11.82 19.79 19.79 0 0 1 2.08 2.18 2 2 0 0 1 4.11 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 7.91a16 16 0 0 0 8 8l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +964 783 871 9989
+      </a>
+      <a href="mailto:brbarq.1998.barq@gmail.com" class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        brbarq.1998.barq@gmail.com
+      </a>
+    </div>
+  </div>
+
+  <!-- ── STATS ── -->
+  <div class="stats-strip sec">
+    <div class="stat">
+      <div class="stat-num">7+</div>
+      <div class="stat-label">
+        <span class="ar">سنوات خبرة</span>
+        <span class="en">Years Experience</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">
+        <span class="ar">مناصب قيادية</span>
+        <span class="en">Leadership Roles</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">
+        <span class="ar">لغات</span>
+        <span class="en">Languages</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SUMMARY ── -->
+  <div class="sec" id="sec-about">
+    <div class="sec-head">
+      <div class="sec-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <span class="sec-label">
+        <span class="ar">نبذة شخصية</span>
+        <span class="en">About</span>
+      </span>
+    </div>
+    <div class="card">
+      <div class="summary-inner">
+        <div class="summary-quote">"</div>
+        <p class="summary-text">
+          <span class="ar">متخصص في إدارة الموارد البشرية وعمليات التجزئة بخبرة تمتد لأكثر من ٧ سنوات. انطلقت مسيرتي المهنية في إدارة فروع التجزئة والأقسام التشغيلية، لأنتقل لاحقاً إلى قيادة فرق الموارد البشرية في بيئات متعددة تشمل هايبر ماركت متروكنت ومطعم فورنو. أتميز بقدرتي على تطوير الكفاءات البشرية وبناء بيئات عمل منتجة ومتوازنة.</span>
+          <span class="en">HR and retail operations professional with 7+ years of progressive experience. Started in branch and department management, then transitioned into human resources leadership across MetroKent Hypermarket and Forno Restaurant. Known for building strong teams, streamlining HR processes, and creating positive workplace cultures.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EDUCATION ── -->
+  <div class="sec">
+    <div class="sec-head">
+      <div class="sec-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <span class="sec-label">
+        <span class="ar">التعليم</span>
+        <span class="en">Education</span>
+      </span>
+    </div>
+    <div class="card">
+      <div class="edu-inner">
+        <div class="edu-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="edu-info">
+          <div class="edu-degree">
+            <span class="ar">بكالوريوس تربية بدنية وعلوم الرياضة</span>
+            <span class="en">B.Sc. Physical Education & Sports Sciences</span>
+          </div>
+          <div class="edu-field">
+            <span class="ar">يُرسّخ قيم الانضباط والعمل الجماعي وبناء الفريق — وهي مهارات نقلتها إلى بيئة العمل المؤسسي</span>
+            <span class="en">Foundations in discipline, teamwork & leadership — values directly applied to professional management roles</span>
+          </div>
+          <div class="edu-year">العراق</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── EXPERIENCE ── -->
+  <div class="sec" id="sec-exp">
+    <div class="sec-head">
+      <div class="sec-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      </div>
+      <span class="sec-label">
+        <span class="ar">المسار المهني</span>
+        <span class="en">Work Experience</span>
+      </span>
+    </div>
+    <div class="card">
+      <div class="exp-list">
+
+        <!-- 1 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-title">
+                <span class="ar">مسؤول فرع</span>
+                <span class="en">Branch Manager</span>
+              </div>
+              <div class="exp-company">
+                <span class="ar">سلسلة ماركت بنتنا أميرة</span>
+                <span class="en">Bantna Amira Market Chain</span>
+              </div>
+            </div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2018 – 2020
+            </div>
+          </div>
+          <p class="exp-desc">
+            <span class="ar">الإشراف الكامل على عمليات الفرع اليومية بما تشمل المخزون والمبيعات وخدمة العملاء. قيادة فريق العمل وضمان تحقيق المستهدفات وتقديم تجربة تسوق متميزة للعملاء.</span>
+            <span class="en">Full oversight of daily branch operations including inventory, sales, and customer service. Led the team to consistently meet targets while ensuring an excellent shopping experience.</span>
+          </p>
+        </div>
+        <div class="exp-divider"></div>
+
+        <!-- 2 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-title">
+                <span class="ar">مسؤول قسم اللحوم</span>
+                <span class="en">Meat Department Supervisor</span>
+              </div>
+              <div class="exp-company">
+                <span class="ar">هايبر ماركت متروكنت</span>
+                <span class="en">MetroKent Hypermarket</span>
+              </div>
+            </div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2020 – 2021
+            </div>
+          </div>
+          <p class="exp-desc">
+            <span class="ar">إدارة قسم اللحوم والإشراف على عمليات التوريد والتخزين وضمان الجودة ومعايير السلامة الغذائية. تحسين أداء القسم وتطوير العلاقات مع الموردين المحليين.</span>
+            <span class="en">Managed the meat department including procurement, cold-chain storage, quality assurance, and food safety standards. Improved department performance and supplier relationships.</span>
+          </p>
+        </div>
+        <div class="exp-divider"></div>
+
+        <!-- 3 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-title">
+                <span class="ar">مدير فريش فود</span>
+                <span class="en">Fresh Food Manager</span>
+              </div>
+              <div class="exp-company">
+                <span class="ar">هايبر ماركت متروكنت</span>
+                <span class="en">MetroKent Hypermarket</span>
+              </div>
+            </div>
+            <div class="exp-badge">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              2021 – 2023
+            </div>
+          </div>
+          <p class="exp-desc">
+            <span class="ar">قيادة قسم الأغذية الطازجة بكامل أقسامه الفرعية؛ الإشراف على الفرق والجداول الزمنية وإدارة الهدر والتحقق من الامتثال لمعايير الجودة والنظافة. تحقيق انخفاض ملحوظ في نسبة الهدر الغذائي خلال فترة الإدارة.</span>
+            <span class="en">Led the fresh food division across all sub-departments, managing team schedules, waste reduction, and quality compliance. Achieved significant reduction in food waste during tenure.</span>
+          </p>
+        </div>
+        <div class="exp-divider"></div>
+
+        <!-- 4 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-left">
+              <div class="exp-title">
+                <span class="ar">مدير الموارد البشرية</span>
+                <span class="en">Human Resources Manager</span>
+              </div>
+              <div class="exp-company">
+                <span class="ar">هايبر ماركت متروكنت + مطعم فورنو</span>
+                <span class="en">MetroKent Hypermarket + Forno Restaurant</span>
+              </div>
+            </div>
+            <div class="exp-badge" style="background: var(--green-dim); color: var(--green);">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              <span class="ar">٢٠٢٣ – الآن</span>
+              <span class="en">2023 – Present</span>
+            </div>
+          </div>
+          <p class="exp-desc">
+            <span class="ar">تولي المسؤولية الكاملة لإدارة الموارد البشرية في منشأتين مختلفتين. يشمل الدور: التوظيف والاستقطاب، تطوير سياسات العمل، إدارة الرواتب والحوافز، معالجة شؤون الموظفين، وضمان الامتثال لأنظمة العمل. العمل على نظام SAP لإدارة بيانات الموظفين وأنظمة HR المتخصصة.</span>
+            <span class="en">Full HR ownership across two entities — covering talent acquisition, policy development, payroll, employee relations, and labor law compliance. Utilizing SAP and specialized HR systems for workforce data management and reporting.</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SKILLS + LANGUAGES (2-col) ── -->
+  <div class="two-col">
+
+    <!-- SKILLS -->
+    <div class="sec" id="sec-skills">
+      <div class="sec-head">
+        <div class="sec-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+        </div>
+        <span class="sec-label">
+          <span class="ar">المهارات</span>
+          <span class="en">Skills</span>
+        </span>
+      </div>
+      <div class="card">
+        <div class="skills-wrap">
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(0,113,227,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--accent)"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name">Microsoft Office</div>
+              <div class="skill-desc">Word · Excel · PowerPoint</div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.9" style="background: linear-gradient(90deg, var(--accent), #5ac8fa);"></div></div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(52,199,89,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--green)"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name">SAP Systems</div>
+              <div class="skill-desc"><span class="ar">إدارة موارد المؤسسة</span><span class="en">Enterprise Resource Planning</span></div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.78" style="background: linear-gradient(90deg, var(--green), #7dd87a);"></div></div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(255,149,0,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--orange)"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name">HR Systems</div>
+              <div class="skill-desc"><span class="ar">أنظمة إدارة الموظفين</span><span class="en">Workforce Management</span></div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.85" style="background: linear-gradient(90deg, var(--orange), #ffcc66);"></div></div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(0,113,227,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--accent)"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name"><span class="ar">إدارة الفرق</span><span class="en">Team Management</span></div>
+              <div class="skill-desc"><span class="ar">قيادة وتحفيز</span><span class="en">Leadership & Motivation</span></div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.92" style="background: linear-gradient(90deg, var(--accent), #5ac8fa);"></div></div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(52,199,89,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--green)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name"><span class="ar">التوظيف والاستقطاب</span><span class="en">Talent Acquisition</span></div>
+              <div class="skill-desc"><span class="ar">فرز وتقييم ومقابلات</span><span class="en">Screening & Interviews</span></div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.88" style="background: linear-gradient(90deg, var(--green), #7dd87a);"></div></div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(255,149,0,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--orange)"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name"><span class="ar">تقييم الأداء</span><span class="en">Performance Review</span></div>
+              <div class="skill-desc"><span class="ar">KPIs وتقارير</span><span class="en">KPIs & Reporting</span></div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.82" style="background: linear-gradient(90deg, var(--orange), #ffcc66);"></div></div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-icon-wrap" style="background: rgba(0,113,227,0.10);">
+              <svg viewBox="0 0 24 24" stroke="var(--accent)"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+            </div>
+            <div class="skill-info">
+              <div class="skill-name"><span class="ar">علاقات العمل</span><span class="en">Labor Relations</span></div>
+              <div class="skill-desc"><span class="ar">سياسات وامتثال</span><span class="en">Policies & Compliance</span></div>
+            </div>
+            <div class="skill-bar-wrap"><div class="skill-bar" data-w="0.80" style="background: linear-gradient(90deg, var(--accent), #5ac8fa);"></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- LANGUAGES -->
+    <div class="sec">
+      <div class="sec-head">
+        <div class="sec-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+        </div>
+        <span class="sec-label">
+          <span class="ar">اللغات</span>
+          <span class="en">Languages</span>
+        </span>
+      </div>
+      <div class="card">
+        <div class="lang-wrap">
+
+          <div class="lang-item">
+            <div class="lang-flag" style="background: var(--accent-dim);">
+              <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><text y="22" font-size="22">🇮🇶</text></svg>
+            </div>
+            <div class="lang-info">
+              <div class="lang-name"><span class="ar">العربية</span><span class="en">Arabic</span></div>
+              <div class="lang-level"><span class="ar">اللغة الأم</span><span class="en">Native</span></div>
+            </div>
+            <div class="lang-bar-wrap">
+              <div class="lang-bar" data-w="1" style="background: linear-gradient(90deg, var(--accent), #5ac8fa);"></div>
+            </div>
+            <div class="lang-pct">100%</div>
+          </div>
+
+          <div class="lang-item">
+            <div class="lang-flag" style="background: rgba(52,199,89,0.10);">
+              <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><text y="22" font-size="22">🇬🇧</text></svg>
+            </div>
+            <div class="lang-info">
+              <div class="lang-name"><span class="ar">الإنجليزية</span><span class="en">English</span></div>
+              <div class="lang-level"><span class="ar">مستوى جيد</span><span class="en">Good</span></div>
+            </div>
+            <div class="lang-bar-wrap">
+              <div class="lang-bar" data-w="0.65" style="background: linear-gradient(90deg, var(--green), #7dd87a);"></div>
+            </div>
+            <div class="lang-pct">65%</div>
+          </div>
+
+          <div class="lang-item">
+            <div class="lang-flag" style="background: rgba(255,149,0,0.10);">
+              <svg width="22" height="22" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><text y="22" font-size="22">🇹🇷</text></svg>
+            </div>
+            <div class="lang-info">
+              <div class="lang-name"><span class="ar">التركية</span><span class="en">Turkish</span></div>
+              <div class="lang-level"><span class="ar">مستوى جيد</span><span class="en">Good</span></div>
+            </div>
+            <div class="lang-bar-wrap">
+              <div class="lang-bar" data-w="0.65" style="background: linear-gradient(90deg, var(--orange), #ffcc66);"></div>
+            </div>
+            <div class="lang-pct">65%</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end two-col -->
+
+</main>
+
+<footer>
+  <span class="ar">بارق حذيفة مزهر &nbsp;·&nbsp; بغداد، العراق &nbsp;·&nbsp; 2026</span>
+  <span class="en">Bareq Huzaifa Mazhar &nbsp;·&nbsp; Baghdad, Iraq &nbsp;·&nbsp; 2026</span>
+</footer>
+
+<script>
+/* ── PRINT PDF ── */
+function printPDF() {
+  const navbar = document.querySelector('.navbar');
+  const before = document.body.style.getPropertyValue('--saved');
+  navbar.style.display = 'none';
+  document.querySelectorAll('.sec').forEach(s => {
+    s.style.opacity = '1';
+    s.style.transform = 'none';
+  });
+  window.print();
+  setTimeout(() => { navbar.style.display = ''; }, 500);
+}
+
+/* ── THEME ── */
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('btn-light').classList.toggle('on', t === 'light');
+  document.getElementById('btn-dark').classList.toggle('on',  t === 'dark');
+  localStorage.setItem('cv2-theme', t);
+}
+
+/* ── LANG ── */
+function setLang(l) {
+  document.body.classList.toggle('lang-en', l === 'en');
+  document.documentElement.setAttribute('lang', l);
+  document.documentElement.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+  document.getElementById('btn-ar').classList.toggle('on', l === 'ar');
+  document.getElementById('btn-en').classList.toggle('on', l === 'en');
+  localStorage.setItem('cv2-lang', l);
+}
+
+/* ── INTERSECTION OBSERVER ── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (!e.isIntersecting) return;
+    setTimeout(() => {
+      e.target.classList.add('vis');
+      // animate bars inside
+      e.target.querySelectorAll('.skill-bar, .lang-bar').forEach(bar => {
+        const w = parseFloat(bar.dataset.w || 0);
+        bar.style.transform = `scaleX(${w})`;
+      });
+    }, i * 60);
+    io.unobserve(e.target);
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.sec').forEach(el => io.observe(el));
+
+/* ── RESTORE ── */
+const t = localStorage.getItem('cv2-theme') || 'light';
+const l = localStorage.getItem('cv2-lang')  || 'ar';
+setTheme(t);
+setLang(l);
+</script>
+</body>
+</html>
